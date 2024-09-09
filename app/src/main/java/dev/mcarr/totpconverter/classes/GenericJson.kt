@@ -46,9 +46,9 @@ class GenericJson(
             val name = ""
             val issuer = ""
 
-            if (uri.scheme != "optauth" || pathSegments[0] != "totp"){
+            if (uri.scheme != "otpauth" || uri.host != "totp"){
                 val secret = "";
-                GenericJsonTotpArgs(
+                return GenericJsonTotpArgs(
                     name = name,
                     issuer = issuer,
                     secret = secret,
@@ -61,8 +61,8 @@ class GenericJson(
             // First, test for otpauth uris without any parameters.
             // eg. otpauth://totp/mysecret
             if (queryParameterNames.isEmpty()){
-                val secret = pathSegments[1] // TODO throw exception if it doesn't exist?
-                GenericJsonTotpArgs(
+                val secret = pathSegments[0] // TODO throw exception if it doesn't exist?
+                return GenericJsonTotpArgs(
                     name = name,
                     issuer = issuer,
                     secret = secret,
@@ -92,7 +92,7 @@ class GenericJson(
         ): GenericJsonTotpArgs {
 
             // eg. otpauth://totp/Facebook:myusername?issuer=Facebook&secret=abc
-            val nameAndIssuer = uri.pathSegments[1]
+            val nameAndIssuer = uri.pathSegments[0]
             val decodedNameAndIssuer = nameAndIssuer // TODO does it need to be decoded?
             val cIndex = decodedNameAndIssuer.indexOf(':')
 
