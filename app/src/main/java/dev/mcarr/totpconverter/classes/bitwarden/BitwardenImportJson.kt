@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class BitwardenImportJson(
-    override val encrypted: Boolean,
-    override val folders: List<BitwardenImportFolder>,
+    override val encrypted: Boolean?,
+    override val folders: List<BitwardenImportFolder>?,
     override val items: List<BitwardenImportItem>
 ) : IBitwardenImportJson

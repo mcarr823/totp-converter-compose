@@ -5,5 +5,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class BitwardenImportSecureNote(
-    override val type: Int
+    override val type: Int?
 ) : IBitwardenImportSecureNote

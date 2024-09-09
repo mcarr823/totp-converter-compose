@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class BitwardenImportLogin(
     override val uris: List<BitwardenImportLoginUri>,
-    override val username: String,
-    override val password: String,
+    override val username: String?,
+    override val password: String?,
     override val totp: String?
 ) : IBitwardenImportLogin
