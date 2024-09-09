@@ -1,8 +1,9 @@
 package dev.mcarr.totpconverter.classes.proton
 
 import dev.mcarr.totpconverter.interfaces.proton.IProtonImportItem
-import org.json.JSONObject
+import kotlinx.serialization.Serializable
 
-class ProtonImportItem : JSONObject(), IProtonImportItem {
-    override val data = getJSONObject("data") as ProtonImportData
-}
+@Serializable
+data class ProtonImportItem(
+    override val data: ProtonImportData
+) : IProtonImportItem

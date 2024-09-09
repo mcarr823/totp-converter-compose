@@ -1,25 +1,26 @@
 package dev.mcarr.totpconverter.classes.bitwarden
 
 import dev.mcarr.totpconverter.interfaces.bitwarden.IBitwardenImportIdentity
-import org.json.JSONObject
+import kotlinx.serialization.Serializable
 
-class BitwardenImportIdentity : JSONObject(), IBitwardenImportIdentity {
-    override val title = getString("title")
-    override val firstName = getString("firstName")
-    override val middleName = getString("middleName")
-    override val lastName = getString("lastName")
-    override val address1 = getString("address1")
-    override val address2 = null
-    override val address3 = null
-    override val city = getString("city")
-    override val state = getString("state")
-    override val postalCode = getString("postalCode")
-    override val country = getString("country")
-    override val company = getString("company")
-    override val email = getString("email")
-    override val phone = getString("phone")
-    override val ssn = getString("ssn")
-    override val username = getString("username")
-    override val passportInt = getString("passportInt")
-    override val licenseInt = getString("licenseInt")
-}
+@Serializable
+data class BitwardenImportIdentity(
+    override val title: String,
+    override val firstName: String,
+    override val middleName: String,
+    override val lastName: String,
+    override val address1: String,
+    override val address2: String?,
+    override val address3: String?,
+    override val city: String,
+    override val state: String,
+    override val postalCode: String,
+    override val country: String,
+    override val company: String,
+    override val email: String,
+    override val phone: String,
+    override val ssn: String,
+    override val username: String,
+    override val passportInt: String,
+    override val licenseInt: String
+) : IBitwardenImportIdentity

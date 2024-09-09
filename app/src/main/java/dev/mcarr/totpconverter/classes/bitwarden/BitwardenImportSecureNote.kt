@@ -1,8 +1,9 @@
 package dev.mcarr.totpconverter.classes.bitwarden
 
 import dev.mcarr.totpconverter.interfaces.bitwarden.IBitwardenImportSecureNote
-import org.json.JSONObject
+import kotlinx.serialization.Serializable
 
-class BitwardenImportSecureNote : JSONObject(), IBitwardenImportSecureNote {
-    override val type = getInt("type")
-}
+@Serializable
+data class BitwardenImportSecureNote(
+    override val type: Int
+) : IBitwardenImportSecureNote

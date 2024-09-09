@@ -1,9 +1,10 @@
 package dev.mcarr.totpconverter.classes.bitwarden
 
 import dev.mcarr.totpconverter.interfaces.bitwarden.IBitwardenImportLoginUri
-import org.json.JSONObject
+import kotlinx.serialization.Serializable
 
-class BitwardenImportLoginUri : JSONObject(), IBitwardenImportLoginUri {
-    override val match = null
-    override val uri = getString("uri")
-}
+@Serializable
+data class BitwardenImportLoginUri(
+    override val match: String?,
+    override val uri: String
+) : IBitwardenImportLoginUri

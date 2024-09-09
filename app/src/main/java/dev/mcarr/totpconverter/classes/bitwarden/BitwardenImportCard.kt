@@ -1,13 +1,14 @@
 package dev.mcarr.totpconverter.classes.bitwarden
 
 import dev.mcarr.totpconverter.interfaces.bitwarden.IBitwardenImportCard
-import org.json.JSONObject
+import kotlinx.serialization.Serializable
 
-class BitwardenImportCard : JSONObject(), IBitwardenImportCard {
-    override val cardholderName = getString("cardholderName")
-    override val brand = null
-    override val number = getString("number")
-    override val expMonth = getString("expMonth")
-    override val expYear = getString("expYear")
-    override val code = getString("code")
-}
+@Serializable
+data class BitwardenImportCard(
+    override val cardholderName: String,
+    override val brand: String?,
+    override val number: String,
+    override val expMonth: String,
+    override val expYear: String,
+    override val code: String
+) : IBitwardenImportCard

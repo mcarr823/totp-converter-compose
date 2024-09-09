@@ -1,11 +1,11 @@
 package dev.mcarr.totpconverter.classes.bitwarden
 
 import dev.mcarr.totpconverter.interfaces.bitwarden.IBitwardenImportJson
-import dev.mcarr.totpconverter.utilities.mapJsonArray
-import org.json.JSONObject
+import kotlinx.serialization.Serializable
 
-class BitwardenImportJson : JSONObject(), IBitwardenImportJson {
-    override val encrypted = getBoolean("encrypted");
-    override val folders = mapJsonArray<BitwardenImportFolder>("folders")
-    override val items = mapJsonArray<BitwardenImportItem>("items")
-}
+@Serializable
+data class BitwardenImportJson(
+    override val encrypted: Boolean,
+    override val folders: List<BitwardenImportFolder>,
+    override val items: List<BitwardenImportItem>
+) : IBitwardenImportJson

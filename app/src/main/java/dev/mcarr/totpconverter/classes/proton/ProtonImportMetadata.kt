@@ -1,8 +1,9 @@
 package dev.mcarr.totpconverter.classes.proton
 
 import dev.mcarr.totpconverter.interfaces.proton.IProtonImportMetadata
-import org.json.JSONObject
+import kotlinx.serialization.Serializable
 
-class ProtonImportMetadata : JSONObject(), IProtonImportMetadata {
-    override val name = getString("name")
-}
+@Serializable
+data class ProtonImportMetadata(
+    override val name: String
+) : IProtonImportMetadata

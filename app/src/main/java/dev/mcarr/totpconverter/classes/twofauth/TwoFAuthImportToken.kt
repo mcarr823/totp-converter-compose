@@ -1,19 +1,20 @@
 package dev.mcarr.totpconverter.classes.twofauth
 
 import dev.mcarr.totpconverter.interfaces.twofauth.ITwoFAuthImportToken
-import org.json.JSONObject
+import kotlinx.serialization.Serializable
 
-class TwoFAuthImportToken : JSONObject(), ITwoFAuthImportToken {
-    override val otp_type = getString("otp_type")
-    override val account = getString("account")
-    override val service = optString("service")
-    override val icon = optString("icon")
-    override val icon_mime = optString("icon_mime")
-    override val icon_file = optString("icon_file")
-    override val secret = getString("secret")
-    override val digits = getInt("digits")
-    override val algorithm = getString("algorithm")
-    override val period = getInt("period")
-    override val counter = null
-    override val legacy_uri = getString("legacy_uri")
-}
+@Serializable
+data class TwoFAuthImportToken(
+    override val otp_type: String,
+    override val account: String,
+    override val service: String?,
+    override val icon: String?,
+    override val icon_mime: String?,
+    override val icon_file: String?,
+    override val secret: String,
+    override val digits: Int,
+    override val algorithm: String,
+    override val period: Int,
+    override val counter: Int?,
+    override val legacy_uri: String
+) : ITwoFAuthImportToken

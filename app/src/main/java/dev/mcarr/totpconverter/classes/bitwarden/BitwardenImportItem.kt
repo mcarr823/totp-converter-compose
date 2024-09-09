@@ -1,26 +1,26 @@
 package dev.mcarr.totpconverter.classes.bitwarden
 
 import dev.mcarr.totpconverter.interfaces.bitwarden.IBitwardenImportItem
-import dev.mcarr.totpconverter.utilities.mapJsonArray
-import org.json.JSONObject
+import kotlinx.serialization.Serializable
 
-class BitwardenImportItem : JSONObject(), IBitwardenImportItem {
-    override val passwordHistory = null
-    override val revisionDate = getString("revisionDate")
-    override val creationDate = getString("creationDate")
-    override val deletedDate = null
-    override val id = getString("id")
-    override val organizationId = null
-    override val folderId = null
-    override val type = getInt("type")
-    override val reprompt = getInt("reprompt")
-    override val name = getString("name")
-    override val notes = getString("notes")
-    override val favorite = getBoolean("favorite")
-    override val secureNote = null
-    override val card = null
-    override val fields = mapJsonArray<BitwardenImportField>("fields")
-    override val login = null
-    override val identity = null
-    override val collectionIds = null
-}
+@Serializable
+data class BitwardenImportItem(
+    override val passwordHistory: String?,
+    override val revisionDate: String,
+    override val creationDate: String,
+    override val deletedDate: String?,
+    override val id: String,
+    override val organizationId: String?,
+    override val folderId: String?,
+    override val type: Int,
+    override val reprompt: Int,
+    override val name: String,
+    override val notes: String,
+    override val favorite: Boolean,
+    override val secureNote: BitwardenImportSecureNote?,
+    override val card: BitwardenImportCard?,
+    override val fields: List<BitwardenImportField>,
+    override val login: BitwardenImportLogin?,
+    override val identity: BitwardenImportIdentity?,
+    override val collectionIds: String?
+) : IBitwardenImportItem
