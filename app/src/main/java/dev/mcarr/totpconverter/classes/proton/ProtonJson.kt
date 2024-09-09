@@ -3,13 +3,15 @@ package dev.mcarr.totpconverter.classes.proton
 import dev.mcarr.totpconverter.classes.GenericJson
 import dev.mcarr.totpconverter.classes.GenericJsonEntry
 import dev.mcarr.totpconverter.interfaces.proton.IProtonImportJson
+import dev.mcarr.totpconverter.utilities.jsonDecode
+import kotlinx.serialization.json.Json
 import org.json.JSONObject
 
 object ProtonJson {
 
-    fun import(json: JSONObject) : GenericJson {
+    fun import(str: String) : GenericJson {
 
-        val proton = json as IProtonImportJson
+        val proton = jsonDecode<ProtonImport>(str)
 
         if (proton.encrypted)
             throw Exception("Encrypted JSON not supported");

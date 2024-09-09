@@ -2,6 +2,12 @@ package dev.mcarr.totpconverter.classes
 
 import android.net.Uri
 import androidx.core.net.toUri
+import dev.mcarr.totpconverter.classes.aegis.AegisExportEntry
+import dev.mcarr.totpconverter.classes.aegis.AegisExportEntryInfo
+import dev.mcarr.totpconverter.classes.bitwarden.BitwardenExportItem
+import dev.mcarr.totpconverter.classes.bitwarden.BitwardenExportItemLogin
+import dev.mcarr.totpconverter.classes.bitwarden.BitwardenExportItemLoginUri
+import dev.mcarr.totpconverter.classes.twofauth.TwoFAuthExportItem
 import dev.mcarr.totpconverter.enums.BitwardenType
 import dev.mcarr.totpconverter.interfaces.IGenericJsonEntry
 import dev.mcarr.totpconverter.utilities.toJsonArray
@@ -75,50 +81,51 @@ abstract class GenericJsonEntry{
 
     }
 
-    fun exportAegis() : JSONObject =
-        JSONObject().apply {
-            put("type", type)
-            put("name", name)
-            put("issuer", issuer)
-            put("info", JSONObject().apply {
-                put("secret", secret)
-                put("digits", digits)
-                put("algo", algo)
-                put("period", period)
-            })
-        }
+    fun exportAegis() : AegisExportEntry =
+        AegisExportEntry(
+            type = type,
+            name = name,
+            issuer = issuer,
+            info = AegisExportEntryInfo(
+                secret = secret,
+                algo = algo,
+                digits = digits,
+                period = period
+            )
+        )
 
-    fun exportBitwarden() : JSONObject =
-        JSONObject().apply {
-            if (type != "totp"){
-                throw Exception("Bitwarden does not support this type of token")
+    fun exportBitwarden(): BitwardenExportItem {
+        if (type != "totp"){
+            throw Exception("Bitwarden does not support this type of token")
+        }
+        val uris =
+            websites.map {
+                BitwardenExportItemLoginUri(
+                    match = null,
+                    uri = it
+                )
             }
-            val uris =
-                websites.toJsonArray {
-                    JSONObject().apply {
-                        put("match", null)
-                        put("uri", it)
-                    }
-                }
-            put("type", BitwardenType.LOGIN)
-            put("name", issuer)
-            put("login", JSONObject().apply {
-                put("totp", buildOtpAuthUri())
-                put("uris", uris)
-            })
-        }
+        return BitwardenExportItem(
+            type = BitwardenType.LOGIN.value,
+            name = issuer,
+            login = BitwardenExportItemLogin(
+                totp = buildOtpAuthUri(),
+                uris = uris
+            )
+        )
+    }
 
-    fun exportTwoFAuth() : JSONObject =
-        JSONObject().apply {
-            put("otp_type", type)
-            put("account", name)
-            put("service", issuer)
-            put("secret", secret)
-            put("digits", digits)
-            put("algorithm", algo)
-            put("period", period)
-            put("counter", null)
-            put("legacy_uri", buildOtpAuthUri())
-        }
+    fun exportTwoFAuth() : TwoFAuthExportItem =
+        TwoFAuthExportItem(
+            otp_type = type,
+            account = name,
+            service = issuer,
+            secret = secret,
+            digits = digits,
+            algorithm = algo,
+            period = period,
+            counter = null,
+            legacy_uri = buildOtpAuthUri()
+        )
 
 }

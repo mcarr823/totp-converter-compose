@@ -1,6 +1,6 @@
 package dev.mcarr.totpconverter.enums
 
-enum class BitwardenType(value: Int){
+enum class BitwardenType(val value: Int){
     LOGIN(1),
     SECURE_NOTE(2),
     CARD(3),

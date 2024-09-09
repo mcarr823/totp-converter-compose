@@ -16,7 +16,7 @@ class GenericJson(
     val entries: List<GenericJsonEntry>
 ){
 
-    fun export(format: FormatNames): JSONObject =
+    fun export(format: FormatNames): String =
         when(format) {
             FormatNames.AEGIS -> AegisJson.export(entries)
             FormatNames.BITWARDEN -> BitwardenJson.export(entries)
@@ -26,15 +26,13 @@ class GenericJson(
 
     companion object{
 
-        fun parse(str: String, format: FormatNames): GenericJson {
-            val json = JSONObject(str)
-            return when (format){
-                FormatNames.AEGIS -> AegisJson.import(json)
-                FormatNames.PROTON -> ProtonJson.import(json)
-                FormatNames.BITWARDEN -> BitwardenJson.import(json)
-                FormatNames.TWOFAUTH -> TwoFAuthJson.import(json)
+        fun parse(str: String, format: FormatNames): GenericJson =
+            when (format){
+                FormatNames.AEGIS -> AegisJson.import(str)
+                FormatNames.PROTON -> ProtonJson.import(str)
+                FormatNames.BITWARDEN -> BitwardenJson.import(str)
+                FormatNames.TWOFAUTH -> TwoFAuthJson.import(str)
             }
-        }
 
         fun parseOtpAuthUri(uriString: String) : GenericJsonTotpArgs {
 
@@ -42,11 +40,11 @@ class GenericJson(
             val pathSegments = uri.pathSegments
             val queryParameterNames = uri.queryParameterNames
 
-            val digits = 6;
-            val period = 30;
-            val algo = "sha1";
-            val name = "";
-            val issuer = "";
+            val digits = 6
+            val period = 30
+            val algo = "sha1"
+            val name = ""
+            val issuer = ""
 
             if (uri.scheme != "optauth" || pathSegments[0] != "totp"){
                 val secret = "";

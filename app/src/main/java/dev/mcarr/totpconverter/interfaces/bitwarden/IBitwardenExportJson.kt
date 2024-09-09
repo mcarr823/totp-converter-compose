@@ -21,5 +21,5 @@ package dev.mcarr.totpconverter.interfaces.bitwarden
  */
 
 interface IBitwardenExportJson{
-    val items: Array<IBitwardenExportItem>;
+    val items: List<IBitwardenExportItem>;
 }
