@@ -1,7 +1,6 @@
 package dev.mcarr.totpconverter.classes
 
 import android.net.Uri
-import androidx.core.net.toUri
 import dev.mcarr.totpconverter.classes.aegis.AegisExportEntry
 import dev.mcarr.totpconverter.classes.aegis.AegisExportEntryInfo
 import dev.mcarr.totpconverter.classes.bitwarden.BitwardenExportItem
@@ -9,10 +8,6 @@ import dev.mcarr.totpconverter.classes.bitwarden.BitwardenExportItemLogin
 import dev.mcarr.totpconverter.classes.bitwarden.BitwardenExportItemLoginUri
 import dev.mcarr.totpconverter.classes.twofauth.TwoFAuthExportItem
 import dev.mcarr.totpconverter.enums.BitwardenType
-import dev.mcarr.totpconverter.interfaces.IGenericJsonEntry
-import dev.mcarr.totpconverter.utilities.toJsonArray
-import org.json.JSONArray
-import org.json.JSONObject
 
 abstract class GenericJsonEntry{
 

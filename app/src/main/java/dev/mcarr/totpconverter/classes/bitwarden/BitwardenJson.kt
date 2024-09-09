@@ -2,12 +2,9 @@ package dev.mcarr.totpconverter.classes.bitwarden
 
 import dev.mcarr.totpconverter.classes.GenericJson
 import dev.mcarr.totpconverter.classes.GenericJsonEntry
-import dev.mcarr.totpconverter.interfaces.bitwarden.IBitwardenImportJson
 import dev.mcarr.totpconverter.utilities.jsonDecode
-import dev.mcarr.totpconverter.utilities.toJsonArray
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import org.json.JSONObject
 
 object BitwardenJson{
 
