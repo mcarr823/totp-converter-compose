@@ -1,5 +1,6 @@
 package dev.mcarr.totpconverter.utilities
 
+import kotlinx.serialization.json.Json
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -27,3 +28,8 @@ fun <T, R> Collection<T>.toJsonArray(transform: (T) -> R): JSONArray =
     JSONArray().apply {
         map(transform).forEach(::put)
     }
+
+inline fun <reified T> jsonDecode(str: String): T {
+    val format = Json{ ignoreUnknownKeys=true }
+    return format.decodeFromString<T>(str)
+}
