@@ -24,8 +24,8 @@ class TwoFAuthJsonItem : GenericJsonEntry {
         val pair = this.parseIssuer(data, parsedArgs.issuer, parsedArgs.name)
 
         this.type = data.otp_type
-        this.name = pair.first
-        this.issuer = pair.second
+        this.name = pair.second
+        this.issuer = pair.first
         this.secret = data.secret
         this.algo = data.algorithm
         this.digits = data.digits
