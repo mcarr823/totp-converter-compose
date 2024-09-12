@@ -19,6 +19,7 @@ import dev.mcarr.totpconverter.ui.theme.TOTPConverterTheme
  * provide a consistent environment for previews of all
  * components and screens.
  *
+ * @param darkMode If true, preview the view in dark mode
  * @param content The composable to be displayed in the preview.
  * */
 @Composable

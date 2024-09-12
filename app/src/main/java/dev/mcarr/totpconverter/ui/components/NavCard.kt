@@ -21,7 +21,8 @@ import dev.mcarr.totpconverter.ui.theme.Typography
 /**
  * Clickable card component with text inside of it.
  *
- * @param text Text to display within the card
+ * @param text Larger text to display at the top of the card
+ * @param subtext Smaller text to display below the main text
  * @param onClick Callback to invoke when the card is tapped
  * */
 @Composable

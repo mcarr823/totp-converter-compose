@@ -16,7 +16,16 @@ import dev.mcarr.totpconverter.ui.theme.Typography
  * Used to provide uniform padding (and other styling later)
  * to all screens.
  *
+ * Padding can optionally be overridden on any side.
+ * eg. In case you want to keep padding uniform on all
+ * sides except one.
+ *
  * @param text Text to display
+ * @param style Style to apply to the text
+ * @param padLeft Padding at the start
+ * @param padRight Padding at the end
+ * @param padTop Padding at the top
+ * @param padBottom Padding at the bottom
  * */
 @Composable
 fun PaddedText(
