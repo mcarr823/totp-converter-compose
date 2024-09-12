@@ -99,3 +99,26 @@ fun PreviewProcessOutputFileScreen(){
     }
 
 }
+
+@Preview
+@Composable
+fun PreviewProcessOutputFileScreenDark(){
+
+    val paddingValues = PaddingValues(0.dp)
+    val model = JsonFileViewModel().apply {
+        inputFormat = FormatNames.AEGIS
+        outputFormat = FormatNames.BITWARDEN
+        uri = "".toUri()
+    }
+
+    PreviewComponent(
+        darkMode = true
+    ) {
+        ProcessOutputFileScreen(
+            paddingValues = paddingValues,
+            model = model,
+            next = {}
+        )
+    }
+
+}

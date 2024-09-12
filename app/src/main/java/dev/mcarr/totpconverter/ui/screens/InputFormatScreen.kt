@@ -63,3 +63,23 @@ fun PreviewInputFormatScreen(){
         )
     }
 }
+
+@Preview
+@Composable
+fun PreviewInputFormatScreenDark(){
+
+    val paddingValues = PaddingValues(0.dp)
+    val model = JsonFileViewModel().apply {
+        inputFormat = FormatNames.AEGIS
+        uri = "".toUri()
+    }
+    PreviewComponent(
+        darkMode = true
+    ) {
+        InputFormatScreen(
+            paddingValues = paddingValues,
+            model = model,
+            next = {}
+        )
+    }
+}

@@ -35,8 +35,18 @@ fun Heading(
 
 @Preview
 @Composable
-fun PreviewHeading() {
+fun PreviewHeadingLight() {
     PreviewComponent {
+        Heading("Test heading")
+    }
+}
+
+@Preview
+@Composable
+fun PreviewHeadingDark() {
+    PreviewComponent(
+        darkMode = true
+    ) {
         Heading("Test heading")
     }
 }

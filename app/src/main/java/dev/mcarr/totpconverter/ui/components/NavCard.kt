@@ -63,13 +63,20 @@ fun NavCard(
 
 @Preview
 @Composable
-fun PreviewNavCard(){
+fun PreviewNavCardLight(){
     PreviewComponent {
-        NavCard(text = "Regular string") {
-            //
-        }
-        NavCard(text = "Annotated string", "Subtext") {
-            //
-        }
+        NavCard(text = "Text with heading only") {}
+        NavCard(text = "Text with subtext", "Subtext") {}
+    }
+}
+
+@Preview
+@Composable
+fun PreviewNavCardDark(){
+    PreviewComponent(
+        darkMode = true
+    ) {
+        NavCard(text = "Text with heading only") {}
+        NavCard(text = "Text with subtext", "Subtext") {}
     }
 }

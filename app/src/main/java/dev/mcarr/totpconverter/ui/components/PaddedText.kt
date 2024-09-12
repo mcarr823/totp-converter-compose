@@ -41,8 +41,18 @@ fun PaddedText(
 
 @Preview
 @Composable
-fun PreviewPaddedText(){
+fun PreviewPaddedTextLight(){
     PreviewComponent {
+        PaddedText(text = "Preview")
+    }
+}
+
+@Preview
+@Composable
+fun PreviewPaddedTextDark(){
+    PreviewComponent(
+        darkMode = true
+    ) {
         PaddedText(text = "Preview")
     }
 }
