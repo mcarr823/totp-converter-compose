@@ -13,10 +13,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import dev.mcarr.totpconverter.enums.FormatNames
 import dev.mcarr.totpconverter.ui.components.Heading
 import dev.mcarr.totpconverter.ui.components.PaddedText
+import dev.mcarr.totpconverter.ui.components.PreviewComponent
 import dev.mcarr.totpconverter.viewmodels.JsonFileViewModel
 
 @Composable
@@ -63,6 +66,48 @@ fun ResultScreen(
             Text(text = "Send")
         }
 
+    }
+
+}
+
+@Preview
+@Composable
+fun PreviewResultScreenLight(){
+
+    val paddingValues = PaddingValues(0.dp)
+    val model = JsonFileViewModel().apply {
+        inputFormat = FormatNames.AEGIS
+        outputFormat = FormatNames.BITWARDEN
+        uri = "".toUri()
+    }
+
+    PreviewComponent {
+        ResultScreen(
+            paddingValues = paddingValues,
+            model = model
+        )
+    }
+
+}
+
+@Preview
+@Composable
+fun PreviewResultScreenDark(){
+
+    val paddingValues = PaddingValues(0.dp)
+    val model = JsonFileViewModel().apply {
+        inputFormat = FormatNames.AEGIS
+        outputFormat = FormatNames.BITWARDEN
+        uri = "".toUri()
+    }
+
+    PreviewComponent(
+        darkMode = true
+    ) {
+        ResultScreen(
+            paddingValues = paddingValues,
+            model = model
+        )
     }
 
 }
