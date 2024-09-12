@@ -108,20 +108,60 @@ fun MainActivityScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun MainActivityHomePreview() {
+fun MainActivityInputFormatPreview() {
     PreviewComponent {
         val model = MainActivityViewModel()
-        // Defaults to HOME
+        // Defaults to INPUT_FORMAT
         MainActivityScreen(model)
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun MainActivityHowToPlayPreview() {
+fun MainActivityInputFilePreview() {
     PreviewComponent {
         val model = MainActivityViewModel()
-        model.startDestination = Destination.INPUT_FILE
+        model.startDestination = INPUT_FILE
+        MainActivityScreen(model)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MainActivityInputProcessingPreview() {
+    PreviewComponent {
+        val model = MainActivityViewModel()
+        model.startDestination = INPUT_PROCESSING
+        MainActivityScreen(model)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MainActivityOutputFormatPreview() {
+    PreviewComponent {
+        val model = MainActivityViewModel()
+        model.startDestination = OUTPUT_FORMAT
+        MainActivityScreen(model)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MainActivityOutputProcessingPreview() {
+    PreviewComponent {
+        val model = MainActivityViewModel()
+        model.startDestination = OUTPUT_PROCESSING
+        MainActivityScreen(model)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MainActivityResultPreview() {
+    PreviewComponent {
+        val model = MainActivityViewModel()
+        model.startDestination = RESULT
         MainActivityScreen(model)
     }
 }
