@@ -17,36 +17,40 @@ object ProtonTestData {
                         "color": 0,
                         "icon": 0
                     },
-                    "items":
-                    [
-                        {
-                            "itemId": "item1",
-                            "shareId": "share1",
-                            "data": ${getData1()},
-                            "state": 1,
-                            "aliasEmail": null,
-                            "contentFormatVersion": 3,
-                            "createTime": 1697597454,
-                            "modifyTime": 1715201864,
-                            "pinned": false
-                        },
-                        {
-                            "itemId": "item2",
-                            "shareId": "share2",
-                            "data": ${getData2()},
-                            "state": 1,
-                            "aliasEmail": null,
-                            "contentFormatVersion": 1,
-                            "createTime": 1697597454,
-                            "modifyTime": 1708056761,
-                            "pinned": false
-                        }
-                    ]
+                    "items": [ ${getItem1()}, ${getItem2()} ]
                 }
             }
         }
     """.trimIndent()
     }
+
+    fun getItem1() = """
+        {
+            "itemId": "item1",
+            "shareId": "share1",
+            "data": ${getData1()},
+            "state": 1,
+            "aliasEmail": null,
+            "contentFormatVersion": 3,
+            "createTime": 1697597454,
+            "modifyTime": 1715201864,
+            "pinned": false
+        }
+    """.trimIndent()
+
+    fun getItem2() = """
+        {
+            "itemId": "item2",
+            "shareId": "share2",
+            "data": ${getData2()},
+            "state": 1,
+            "aliasEmail": null,
+            "contentFormatVersion": 1,
+            "createTime": 1697597453,
+            "modifyTime": 1708056760,
+            "pinned": true
+        }
+    """.trimIndent()
 
     fun getMetadata1() = """
         {
