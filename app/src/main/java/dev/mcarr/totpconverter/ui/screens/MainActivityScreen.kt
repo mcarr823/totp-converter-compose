@@ -49,14 +49,14 @@ fun MainActivityScreen(
         route = destination.route ?: ""
     }
 
-    val goTo: (destination: String) -> Unit = { destination ->
-        navController.navigate(destination)
+    val goTo: (destination: Destination) -> Unit = { destination ->
+        navController.navigate(destination.route)
     }
 
     val goBack: () -> Unit = {
-        if (route == OUTPUT_FORMAT){
+        if (route == OUTPUT_FORMAT.route){
             navController.popBackStack(INPUT_FILE, false)
-        }else if (route == RESULT){
+        }else if (route == RESULT.route){
             navController.popBackStack(OUTPUT_FORMAT, false)
         }else{
             navController.popBackStack()
@@ -69,7 +69,7 @@ fun MainActivityScreen(
             TopAppBar(
                 title = {},
                 navigationIcon = {
-                    if (route == INPUT_FORMAT) {
+                    if (route == INPUT_FORMAT.route) {
                         TextButton(
                             onClick = { goTo(ABOUT) }
                         ) {
@@ -91,25 +91,25 @@ fun MainActivityScreen(
             startDestination = activityModel.startDestination
         ) {
 
-            composable(ABOUT){
+            composable(ABOUT.route){
                 AboutScreen(p)
             }
-            composable(INPUT_FORMAT){
+            composable(INPUT_FORMAT.route){
                 InputFormatScreen(p, model) { goTo(INPUT_FILE) }
             }
-            composable(INPUT_FILE){
+            composable(INPUT_FILE.route){
                 FileSelectScreen(p, model) { goTo(INPUT_PROCESSING) }
             }
-            composable(INPUT_PROCESSING){
+            composable(INPUT_PROCESSING.route){
                 ProcessInputFileScreen(p, model) { goTo(OUTPUT_FORMAT) }
             }
-            composable(OUTPUT_FORMAT){
+            composable(OUTPUT_FORMAT.route){
                 OutputFormatScreen(p, model) { goTo(OUTPUT_PROCESSING) }
             }
-            composable(OUTPUT_PROCESSING){
+            composable(OUTPUT_PROCESSING.route){
                 ProcessOutputFileScreen(p, model) { goTo(RESULT) }
             }
-            composable(RESULT){
+            composable(RESULT.route){
                 ResultScreen(p, model)
             }
 
