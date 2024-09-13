@@ -8,7 +8,7 @@ import org.json.JSONObject
 @Serializable
 data class ProtonImport(
     override val encrypted: Boolean,
-    override val vaults: List<IProtonImportVault>
+    override val vaults: Map<String, ProtonImportVault>
 ) : IProtonImportJson {
 
 

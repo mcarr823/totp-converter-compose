@@ -2,5 +2,5 @@ package dev.mcarr.totpconverter.interfaces.proton
 
 interface IProtonImportJson {
     val encrypted: Boolean;
-    val vaults: List<IProtonImportVault>
+    val vaults: Map<String, IProtonImportVault>
 }

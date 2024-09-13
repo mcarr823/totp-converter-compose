@@ -5,5 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ProtonImportMetadata(
-    override val name: String
+    override val name: String,
+    override val note: String,
+    override val itemUuid: String
 ) : IProtonImportMetadata

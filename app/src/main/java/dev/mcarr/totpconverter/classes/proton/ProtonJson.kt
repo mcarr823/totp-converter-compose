@@ -17,7 +17,7 @@ object ProtonJson {
             throw Exception("Encrypted JSON not supported");
 
         val entries: List<GenericJsonEntry> =
-            proton.vaults.flatMap { it.items }
+            proton.vaults.values.flatMap { it.items }
                 .map{ it.data }
                 .filter{ it.type == "login" }
                 .mapNotNull{
