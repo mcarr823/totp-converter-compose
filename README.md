@@ -7,3 +7,7 @@ The intended use for this program is to move from one 2FA provider to another by
 This app is the Android port of the [self-hosted web version](https://github.com/mcarr823/totp-json-converter).
 
 * This app is a work-in-progress and is not yet functional.
+
+## License
+
+This app uses the Github icon provided by Github, per their [terms of use](https://github.com/logos).
