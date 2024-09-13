@@ -1,4 +1,4 @@
-# TOTP JSON Converter
+# TOTP Converter
 
 This program converts JSON files between a few different 2FA providers' formats.
 
