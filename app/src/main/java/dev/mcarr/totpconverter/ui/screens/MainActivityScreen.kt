@@ -7,6 +7,8 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -19,6 +21,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dev.mcarr.totpconverter.enums.Destination
+import dev.mcarr.totpconverter.enums.Destination.ABOUT
 import dev.mcarr.totpconverter.enums.Destination.INPUT_FILE
 import dev.mcarr.totpconverter.enums.Destination.INPUT_FORMAT
 import dev.mcarr.totpconverter.enums.Destination.INPUT_PROCESSING
@@ -66,7 +69,13 @@ fun MainActivityScreen(
             TopAppBar(
                 title = {},
                 navigationIcon = {
-                    if (route != INPUT_FORMAT) {
+                    if (route == INPUT_FORMAT) {
+                        TextButton(
+                            onClick = { goTo(ABOUT) }
+                        ) {
+                            Text("About")
+                        }
+                    } else {
                         IconButton(
                             onClick = { goBack() },
                             content = { Icon(Icons.AutoMirrored.Default.ArrowBack, "") }
@@ -82,6 +91,9 @@ fun MainActivityScreen(
             startDestination = activityModel.startDestination
         ) {
 
+            composable(ABOUT){
+                AboutScreen(p)
+            }
             composable(INPUT_FORMAT){
                 InputFormatScreen(p, model) { goTo(INPUT_FILE) }
             }

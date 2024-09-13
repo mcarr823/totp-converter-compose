@@ -17,4 +17,5 @@ object Destination{
     const val OUTPUT_FORMAT = "OUTPUT_FORMAT"
     const val OUTPUT_PROCESSING = "OUTPUT_PROCESSING"
     const val RESULT = "RESULT"
+    const val ABOUT = "ABOUT"
 }
