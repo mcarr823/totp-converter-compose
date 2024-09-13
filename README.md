@@ -15,3 +15,12 @@ This app uses the Github icon provided by Github, per their [terms of use](https
 Other icons are provided by Google under Apache License Version 2.0 as part of their [Material Icons](https://developers.google.com/fonts/docs/material_icons) library.
 
 The source code for this app itself is GPLv3 licensed. See the [LICENSE file](./LICENSE).
+
+## TODO
+
+- support for other providers
+- support for username/password fields as well
+- settings page to enable/disable username, password, etc.
+- support for encrypted import files
+- support for encrypted export files
+
