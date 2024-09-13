@@ -32,12 +32,7 @@ fun FileSelectScreen(
 ) {
 
     val name = remember {
-        when(model.inputFormat){
-            FormatNames.AEGIS -> "Aegis"
-            FormatNames.TWOFAUTH -> "2FAuth"
-            FormatNames.PROTON -> "Proton"
-            FormatNames.BITWARDEN -> "Bitwarden"
-        }
+        model.inputFormat.value
     }
 
     val launcher = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) {

@@ -1,8 +1,8 @@
 package dev.mcarr.totpconverter.enums
 
-enum class FormatNames(value: String){
-    BITWARDEN("bitwarden"),
-    TWOFAUTH("2fauth"),
-    AEGIS("aegis"),
-    PROTON("proton")
+enum class FormatNames(val value: String){
+    BITWARDEN("Bitwarden"),
+    TWOFAUTH("2FAuth"),
+    AEGIS("Aegis"),
+    PROTON("Proton")
 }
