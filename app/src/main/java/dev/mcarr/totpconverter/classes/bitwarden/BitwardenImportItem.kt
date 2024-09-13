@@ -1,14 +1,15 @@
 package dev.mcarr.totpconverter.classes.bitwarden
 
 import dev.mcarr.totpconverter.interfaces.bitwarden.IBitwardenImportItem
+import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class BitwardenImportItem(
-    override val passwordHistory: String?,
-    override val revisionDate: String?,
-    override val creationDate: String?,
-    override val deletedDate: String?,
+    override val passwordHistory: List<BitwardenImportPasswordHistory>?,
+    override val revisionDate: Instant?,
+    override val creationDate: Instant?,
+    override val deletedDate: Instant?,
     override val id: String?,
     override val organizationId: String?,
     override val folderId: String?,

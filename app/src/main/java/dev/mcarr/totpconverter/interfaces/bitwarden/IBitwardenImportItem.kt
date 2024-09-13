@@ -1,13 +1,15 @@
 package dev.mcarr.totpconverter.interfaces.bitwarden
 
+import kotlinx.datetime.Instant
+
 interface IBitwardenImportItem{
-    val passwordHistory: Any?;
-    val revisionDate: String?;
-    val creationDate: String?;
-    val deletedDate: Any?;
+    val passwordHistory: List<IBitwardenImportPasswordHistory>?;
+    val revisionDate: Instant?;
+    val creationDate: Instant?;
+    val deletedDate: Instant?;
     val id: String?;
-    val organizationId: Any?;
-    val folderId: Any?;
+    val organizationId: String?;
+    val folderId: String?;
     val type: Int;
     val reprompt: Int?;
     val name: String;
@@ -18,5 +20,5 @@ interface IBitwardenImportItem{
     val fields: List<IBitwardenImportField>?;
     val login: IBitwardenImportLogin?;
     val identity: IBitwardenImportIdentity?;
-    val collectionIds: Any?;
+    val collectionIds: String?;
 }

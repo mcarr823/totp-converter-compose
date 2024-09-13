@@ -4,6 +4,8 @@ object BitwardenTestData {
 
     fun getFullObject(): String {
 
+        val folder1 = getFolder1()
+
         val item1 = getLoginItem1()
         val item2 = getLoginItem2()
         val item3 = getCardItem1()
@@ -11,15 +13,26 @@ object BitwardenTestData {
         val item5 = getIdentityItem1()
 
         return """
-            { "items": [ $item1, $item2, $item3, $item4, $item5 ] }
+            {
+                "folders": [ $folder1 ],
+                "items": [ $item1, $item2, $item3, $item4, $item5 ]
+            }
         """.trimIndent()
     }
+
+    fun getFolder1() = """
+        {
+            "id": "123456789",
+            "name": "Folder Name"
+        }
+    """.trimIndent()
 
     fun getLoginItem1(): String = """
         {
             "type": 1,
             "name": "Login Item's Name",
-            "login": ${getLogin1()}
+            "login": ${getLogin1()},
+            "fields": ${getField1()}
         }
     """.trimIndent()
 
@@ -70,7 +83,30 @@ object BitwardenTestData {
         {
             "type": 4,
             "name": "Identity Item's Name",
-            "identity": {}                    
+            "identity": ${getIdentity1()}
+        }
+    """.trimIndent()
+
+    fun getIdentity1(): String = """
+        {
+            "title": "test1",
+            "firstName": "test2",
+            "middleName": "test3",
+            "lastName": "test4",
+            "address1": "test5",
+            "address2": "test6",
+            "address3": "test7",
+            "city": "test8",
+            "state": "test9",
+            "postalCode": "test10",
+            "country": "test11",
+            "company": "test12",
+            "email": "test13",
+            "phone": "test14",
+            "ssn": "test15",
+            "username": "test16",
+            "passportInt": "test17",
+            "licenseInt": "test18"
         }
     """.trimIndent()
 
@@ -85,6 +121,14 @@ object BitwardenTestData {
                     "uri":"https://my.domain.com"
                 }]
             }
+        }
+    """.trimIndent()
+
+    fun getField1() = """
+        {
+          "name": "custom-field-1",
+          "value": "custom-field-value",
+          "type": 0
         }
     """.trimIndent()
 
