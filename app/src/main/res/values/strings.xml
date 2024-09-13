@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TOTP Converter</string>
+    <string name="github_repo_url">https://github.com/mcarr823/totp-converter-compose</string>
+    <string name="github_report_issue_url">https://github.com/mcarr823/totp-converter-compose/issues</string>
 </resources>
