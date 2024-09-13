@@ -8,21 +8,24 @@ object ProtonTestData {
             "userId": "test",
             "vaults":
             {
-                "vault2":
-                {
-                    "name": "Personal",
-                    "description": "Personal vault",
-                    "display":
-                    {
-                        "color": 0,
-                        "icon": 0
-                    },
-                    "items": [ ${getItem1()}, ${getItem2()} ]
-                }
+                "vault2": ${getVault1()}
             }
         }
     """.trimIndent()
     }
+
+    fun getVault1() = """
+        {
+            "name": "Personal",
+            "description": "Personal vault",
+            "display":
+            {
+                "color": 0,
+                "icon": 0
+            },
+            "items": [ ${getItem1()}, ${getItem2()} ]
+        }
+    """.trimIndent()
 
     fun getItem1() = """
         {
