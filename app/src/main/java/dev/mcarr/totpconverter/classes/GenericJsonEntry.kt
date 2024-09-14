@@ -53,7 +53,7 @@ abstract class GenericJsonEntry{
 
         val params = Uri.Builder()
             .scheme("otpauth")
-            .appendPath("totp")
+            .authority("totp")
             .appendQueryParameter("secret", secret)
             .appendQueryParameter("algorithm", algo)
             .appendQueryParameter("digits", digits.toString())

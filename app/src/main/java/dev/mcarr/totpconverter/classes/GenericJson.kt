@@ -46,7 +46,7 @@ class GenericJson(
             val name = ""
             val issuer = ""
 
-            if (uri.scheme != "otpauth" || uri.host != "totp"){
+            if (uri.scheme != "otpauth" || uri.authority != "totp"){
                 val secret = "";
                 return GenericJsonTotpArgs(
                     name = name,
