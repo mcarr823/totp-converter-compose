@@ -11,7 +11,7 @@ class TwoFAuthImportJsonTest{
     @Test
     fun test(){
 
-        val testData = TwoFAuthTestData()
+        val testData = TwoFAuthTestData.getFullObject()
         val tfa = jsonDecode<TwoFAuthImportJson>(testData)
 
         assertEquals("2fauth_v5.1.1", tfa.app)
@@ -21,18 +21,6 @@ class TwoFAuthImportJsonTest{
         // Check length
         assertEquals(1, tfa.data.size)
 
-        // Check all entries
-        checkFirstEntry(tfa.data[0])
-
     }
 
-    fun checkFirstEntry(obj: TwoFAuthImportToken) {
-        assertEquals("totp", obj.otp_type)
-        assertEquals("johndoe@facebook.com", obj.account)
-        assertEquals("Facebook", obj.service)
-        assertEquals("A4GRFTVVRBGY7UIW", obj.secret)
-        assertEquals(6, obj.digits)
-        assertEquals("sha1", obj.algorithm)
-        assertEquals(30, obj.period)
-    }
 }

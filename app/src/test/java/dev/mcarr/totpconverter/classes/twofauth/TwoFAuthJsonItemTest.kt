@@ -1,5 +1,6 @@
 package dev.mcarr.totpconverter.classes.twofauth
 
+import dev.mcarr.totpconverter.classes.GenericJsonEntry
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -9,34 +10,32 @@ import org.robolectric.RobolectricTestRunner
 class TwoFAuthJsonItemTest{
 
     @Test
-    fun test(){
+    fun testImportExport(){
+        val testData = TwoFAuthTestData.getFullObject()
+        val tfa = TwoFAuthJson.import(testData)
 
-        val data = TwoFAuthImportToken(
-            otp_type = "test1",
-            account = "test2",
-            service = "test3",
-            icon = null,
-            icon_mime = null,
-            icon_file = null,
-            secret = "test",
-            digits = 6,
-            algorithm = "SHA1",
-            period = 30,
-            counter = null,
-            legacy_uri = ""
-        )
+        // Check all entries
+        checkFirstEntry(tfa.entries[0])
 
-        val item = TwoFAuthJsonItem(data)
+        // Test the export function by exporting and
+        // reimporting the data, then re-checking the
+        // new export
+        val str = TwoFAuthJson.export(tfa.entries)
+        val result = TwoFAuthJson.import(str)
 
-        assertEquals("test1", item.type)
-        assertEquals("test2", item.name)
-        assertEquals("test3", item.issuer)
-        assertEquals("test", item.secret)
-        assertEquals("SHA1", item.algo)
-        assertEquals(6, item.digits)
-        assertEquals(30, item.period)
-        assertEquals(true, item.websites.isEmpty())
+        // Run the same checks as before on the new export
+        checkFirstEntry(result.entries[0])
 
+    }
+
+    fun checkFirstEntry(obj: GenericJsonEntry) {
+        assertEquals("totp", obj.type)
+        assertEquals("johndoe@facebook.com", obj.name)
+        assertEquals("Facebook", obj.issuer)
+        assertEquals("A4GRFTVVRBGY7UIW", obj.secret)
+        assertEquals(6, obj.digits)
+        assertEquals("sha1", obj.algo)
+        assertEquals(30, obj.period)
     }
 
 }

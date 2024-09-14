@@ -10,7 +10,7 @@ class TwoFAuthImportTokenTest{
     @Test
     fun test(){
 
-        val testData = TwoFAuthTestDataItem1()
+        val testData = TwoFAuthTestData.getItem1()
         val obj = jsonDecode<TwoFAuthImportToken>(testData)
 
         assertEquals("totp", obj.otp_type)
