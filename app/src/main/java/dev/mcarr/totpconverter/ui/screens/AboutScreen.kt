@@ -85,7 +85,7 @@ fun AboutScreen(
 
         NavCard(
             icon = githubIcon,
-            text = "Report Issue",
+            text = "Report Issue or Request Feature",
             subtext = githubReportIssueUrl,
             onClick = { openUrl(githubReportIssueUrl) }
         )
