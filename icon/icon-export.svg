@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <rect
+       x="69.85714"
+       y="103.25275"
+       width="430.59708"
+       height="393.71063"
+       id="rect3" />
+  </defs>
+  <g
+     id="layer1">
+    <text
+       xml:space="preserve"
+       id="text3"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:192px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Bold';white-space:pre;shape-inside:url(#rect3);display:inline;fill:#ff7800;fill-opacity:1"
+       transform="translate(-8.7619048,20.315018)"><tspan
+         x="69.857422"
+         y="286.88086"
+         id="tspan1">OTP</tspan></text>
+  </g>
+</svg>
