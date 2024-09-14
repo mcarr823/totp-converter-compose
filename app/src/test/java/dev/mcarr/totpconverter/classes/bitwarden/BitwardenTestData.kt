@@ -32,7 +32,7 @@ object BitwardenTestData {
             "type": 1,
             "name": "Login Item's Name",
             "login": ${getLogin1()},
-            "fields": ${getField1()}
+            "fields": [${getField1()}]
         }
     """.trimIndent()
 
