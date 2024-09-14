@@ -30,6 +30,6 @@ class MainActivityViewModel : ViewModel() {
      * This value should ONLY be changed for unit testing
      * or preview purposes.
      * */
-    var startDestination = Destination.INPUT_FORMAT
+    var startDestination = Destination.INPUT_FORMAT.route
 
 }

@@ -133,7 +133,7 @@ fun MainActivityInputFormatPreview() {
 fun MainActivityInputFilePreview() {
     PreviewComponent {
         val model = MainActivityViewModel()
-        model.startDestination = INPUT_FILE
+        model.startDestination = INPUT_FILE.route
         MainActivityScreen(model)
     }
 }
@@ -143,7 +143,7 @@ fun MainActivityInputFilePreview() {
 fun MainActivityInputProcessingPreview() {
     PreviewComponent {
         val model = MainActivityViewModel()
-        model.startDestination = INPUT_PROCESSING
+        model.startDestination = INPUT_PROCESSING.route
         MainActivityScreen(model)
     }
 }
@@ -153,7 +153,7 @@ fun MainActivityInputProcessingPreview() {
 fun MainActivityOutputFormatPreview() {
     PreviewComponent {
         val model = MainActivityViewModel()
-        model.startDestination = OUTPUT_FORMAT
+        model.startDestination = OUTPUT_FORMAT.route
         MainActivityScreen(model)
     }
 }
@@ -163,7 +163,7 @@ fun MainActivityOutputFormatPreview() {
 fun MainActivityOutputProcessingPreview() {
     PreviewComponent {
         val model = MainActivityViewModel()
-        model.startDestination = OUTPUT_PROCESSING
+        model.startDestination = OUTPUT_PROCESSING.route
         MainActivityScreen(model)
     }
 }
@@ -173,7 +173,7 @@ fun MainActivityOutputProcessingPreview() {
 fun MainActivityResultPreview() {
     PreviewComponent {
         val model = MainActivityViewModel()
-        model.startDestination = RESULT
+        model.startDestination = RESULT.route
         MainActivityScreen(model)
     }
 }
