@@ -18,6 +18,7 @@ object AegisJson{
         Json.encodeToString(
             AegisExport(
                 db = AegisExportDb(
+                    version = 3,
                     entries = entries.map {
                         it.exportAegis()
                     }

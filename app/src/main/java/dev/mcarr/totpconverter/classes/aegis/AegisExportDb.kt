@@ -6,5 +6,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class AegisExportDb(
+    override val version: Int,
     override val entries: List<AegisExportEntry>
 ) : IAegisExportDb
