@@ -56,7 +56,18 @@ object BitwardenTestData {
         {
             "type": 2,
             "name": "Secure Note Item's Name",
-            "secureNote": {}                     
+            "secureNote": ${getSecureNote1()}                     
+        }
+    """.trimIndent()
+
+    fun getSecureNote1(): String = """
+        {
+            "type": 0                     
+        }
+    """.trimIndent()
+
+    fun getSecureNote2(): String = """
+        {                    
         }
     """.trimIndent()
 
