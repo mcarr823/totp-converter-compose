@@ -8,6 +8,8 @@ This app is the Android port of the [self-hosted web version](https://github.com
 
 * This app is a work-in-progress and is not yet functional.
 
+![Preview Image](screenshots/home.png)
+
 ## License
 
 This app uses the Github icon provided by Github, per their [terms of use](https://github.com/logos).
