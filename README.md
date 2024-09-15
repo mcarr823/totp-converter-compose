@@ -1,5 +1,8 @@
 # TOTP Converter
 
+[![Compile debug](https://github.com/mcarr823/totp-converter-compose/actions/workflows/compile.yml/badge.svg)](https://github.com/mcarr823/totp-converter-compose/actions/workflows/compile.yml)
+[![Unit tests](https://github.com/mcarr823/totp-converter-compose/actions/workflows/unittest.yml/badge.svg)](https://github.com/mcarr823/totp-converter-compose/actions/workflows/unittest.yml)
+
 This program converts JSON files between a few different 2FA providers' formats.
 
 The intended use for this program is to move from one 2FA provider to another by exporting your tokens from one provider and converting them into a different format.
