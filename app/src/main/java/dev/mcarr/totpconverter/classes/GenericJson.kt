@@ -91,19 +91,24 @@ class GenericJson(
             defaultAlgo: String
         ): GenericJsonTotpArgs {
 
-            // eg. otpauth://totp/Facebook:myusername?issuer=Facebook&secret=abc
-            val nameAndIssuer = uri.pathSegments[0]
-            val decodedNameAndIssuer = nameAndIssuer // TODO does it need to be decoded?
-            val cIndex = decodedNameAndIssuer.indexOf(':')
-
             val defaultIssuer: String
-            val name: String
-            if (cIndex != -1){
-                defaultIssuer = decodedNameAndIssuer.substring(0, cIndex)
-                name = decodedNameAndIssuer.substring(cIndex+1)
+            val defaultName: String
+            if (uri.pathSegments.isNotEmpty()){
+                // eg. otpauth://totp/Facebook:myusername?issuer=Facebook&secret=abc
+                val nameAndIssuer = uri.pathSegments[0]
+                val decodedNameAndIssuer = nameAndIssuer // TODO does it need to be decoded?
+                val cIndex = decodedNameAndIssuer.indexOf(':')
+
+                if (cIndex != -1){
+                    defaultIssuer = decodedNameAndIssuer.substring(0, cIndex)
+                    defaultName = decodedNameAndIssuer.substring(cIndex+1)
+                }else{
+                    defaultIssuer = ""
+                    defaultName = decodedNameAndIssuer
+                }
             }else{
-                defaultIssuer = decodedNameAndIssuer
-                name = ""
+                defaultIssuer = ""
+                defaultName = ""
             }
 
             val digitParam = uri.getQueryParameter("digits");
@@ -113,6 +118,7 @@ class GenericJson(
             val period = periodParam?.toIntOrNull() ?: defaultPeriod
             val algo = uri.getQueryParameter("algorithm") ?: defaultAlgo
             val issuer = uri.getQueryParameter("issuer") ?: defaultIssuer
+            val name = uri.getQueryParameter("name") ?: defaultName
 
             return GenericJsonTotpArgs(
                 secret = secret,

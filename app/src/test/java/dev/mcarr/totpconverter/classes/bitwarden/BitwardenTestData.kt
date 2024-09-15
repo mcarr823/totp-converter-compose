@@ -40,7 +40,7 @@ object BitwardenTestData {
         {
             "username": "testname",
             "password": "testpass",
-            "totp": "otpauth://totp/mysecret",
+            "totp": "otpauth:\/\/totp\/mysecret",
             "uris":[${getLoginUri1()}]
         }
     """.trimIndent()
@@ -125,13 +125,17 @@ object BitwardenTestData {
         {
             "type": 1,
             "name": "MyUsername",
-            "login": {
-                "totp": "otpauth://totp/MyUsername?issuer=Facebook&secret=abc123",
-                "uris":[{
-                    "match":null,
-                    "uri":"https://my.domain.com"
-                }]
-            }
+            "login": ${getLogin2()}
+        }
+    """.trimIndent()
+
+    fun getLogin2() = """
+        {
+            "totp": "otpauth://totp/MyUsername?issuer=Facebook&secret=abc123",
+            "uris":[{
+                "match":null,
+                "uri":"https://my.domain.com"
+            }]
         }
     """.trimIndent()
 

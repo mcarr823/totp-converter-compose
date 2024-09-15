@@ -42,8 +42,8 @@ class BitwardenJsonTest{
 
     fun checkEntry1(token: GenericJsonEntry) {
         assertEquals("mysecret", token.secret)
-        assertEquals("Login Item's Name", token.issuer)
-        assertEquals("", token.name)
+        assertEquals("", token.issuer)
+        assertEquals("Login Item's Name", token.name)
     }
 
     fun checkEntry2(token: GenericJsonEntry) {

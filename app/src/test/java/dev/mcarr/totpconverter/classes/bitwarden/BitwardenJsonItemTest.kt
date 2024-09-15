@@ -40,8 +40,8 @@ class BitwardenJsonItemTest{
         val bw = BitwardenJsonItem(data)
 
         assertEquals("totp", bw.type)
-        assertEquals("", bw.name)
-        assertEquals("test2", bw.issuer)
+        assertEquals("test2", bw.name)
+        assertEquals("", bw.issuer)
         assertEquals("", bw.secret)
         assertEquals("sha1", bw.algo)
         assertEquals(6, bw.digits)

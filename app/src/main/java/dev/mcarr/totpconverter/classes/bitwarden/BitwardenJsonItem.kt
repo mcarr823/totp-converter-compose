@@ -41,7 +41,7 @@ class BitwardenJsonItem(data: IBitwardenImportItem) : GenericJsonEntry() {
     ): Pair<String, String> = when {
         issuer.isNotEmpty() && name.isNotEmpty() -> issuer to name
         issuer.isNotEmpty() -> issuer to data.name
-        else -> data.name to ""
+        else -> "" to data.name
     }
     // TODO parse username?
 

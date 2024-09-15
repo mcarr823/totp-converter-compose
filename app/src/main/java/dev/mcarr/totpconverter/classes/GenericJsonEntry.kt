@@ -67,6 +67,7 @@ abstract class GenericJsonEntry{
 
         if (this.name.length > 0){
             serviceNameArr.add(this.name);
+            params.appendQueryParameter("name", name)
         }
 
         // eg. Facebook:myaccountname
@@ -102,7 +103,7 @@ abstract class GenericJsonEntry{
             }
         return BitwardenExportItem(
             type = BitwardenType.LOGIN.value,
-            name = issuer,
+            name = name,
             login = BitwardenExportItemLogin(
                 totp = buildOtpAuthUri(),
                 uris = uris

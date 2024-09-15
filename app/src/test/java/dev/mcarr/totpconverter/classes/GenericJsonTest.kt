@@ -64,8 +64,8 @@ class GenericJsonTest{
         assertEquals(6, args.digits)
         assertEquals(30, args.period)
         assertEquals("sha1", args.algo)
-        assertEquals("", args.name)
-        assertEquals("Facebook", args.issuer)
+        assertEquals("Facebook", args.name)
+        assertEquals("", args.issuer)
     }
 
     @Test
@@ -76,8 +76,8 @@ class GenericJsonTest{
         assertEquals(5, args.digits)
         assertEquals(10, args.period)
         assertEquals("SHA512", args.algo)
-        assertEquals("", args.name)
-        assertEquals("Facebook", args.issuer)
+        assertEquals("Facebook", args.name)
+        assertEquals("", args.issuer)
     }
 
 }
